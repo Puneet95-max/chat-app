@@ -5,7 +5,7 @@ let socket = null;
 
 export const initSocket = () => {
   if (!socket) {
-    socket = io("http://localhost:4000", {
+    socket = io("https://web-socket-53zp.onrender.com/", {
       withCredentials: true,
       transports: ["websocket"]
     });
