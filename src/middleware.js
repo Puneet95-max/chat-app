@@ -1,13 +1,13 @@
 import { NextResponse } from 'next/server';
 import { verifyToken } from './lib/jwt';
+import { cookies } from 'next/headers';
 
 export async function middleware(request) {
-  const token = request.cookies.get('token')?.value;
-  const user = verifyToken(token);
-
+  const cookieStore = await cookies();
+  const token = cookieStore.get('token')?.value
   const url = request.nextUrl.clone();
 
-  if (!user && url.pathname.startsWith('/chat')) {
+  if (!token && url.pathname.startsWith('/chat')) {
     url.pathname = '/login';
     return NextResponse.redirect(url);
   }
@@ -16,5 +16,5 @@ export async function middleware(request) {
 }
 
 export const config = {
-  matcher: ['/chatss/:path*'],
+  matcher: ['/chat/:path*'],
 };

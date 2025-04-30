@@ -31,5 +31,11 @@ export async function POST(req) {
     maxAge: 7 * 24 * 60 * 60,
   });
 
+  res.cookies.set("userId", user._id.toString(), {
+    httpOnly: false, // Important: allow frontend access
+    path: "/",
+    maxAge: 7 * 24 * 60 * 60,
+  });
+
   return res;
 }
