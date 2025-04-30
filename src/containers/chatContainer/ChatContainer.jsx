@@ -38,7 +38,7 @@ export default function ChatHomePage() {
 
   return (
     <div className="min-h-screen p-8 bg-gray-100">
-      <div className="max-w-xl mx-auto bg-white p-6 rounded-lg shadow-md">
+      {/* <div className="max-w-xl mx-auto bg-white p-6 rounded-lg shadow-md">
         <h2 className="text-2xl font-bold mb-4">My Threads</h2>
 
         <form onSubmit={createThread} className="flex gap-2 mb-6">
@@ -68,7 +68,7 @@ export default function ChatHomePage() {
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
